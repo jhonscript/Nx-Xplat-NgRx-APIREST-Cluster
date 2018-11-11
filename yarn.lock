@@ -357,6 +357,11 @@
     yargs "^11.0.0"
     yargs-parser "10.0.0"
 
+"@nstudio/schematics@^6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@nstudio/schematics/-/schematics-6.3.1.tgz#5975cda7051b240d752edfafe39c9408c1d31a9a"
+  integrity sha512-v1peTn2kL9qj1F6GoT2O3TsTlWQlbK3kW7H8afrR4DgttzKZE5G3T5gtY5sUUHxRJLWakBkILea0a5DArfdC2Q==
+
 "@schematics/angular@7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.0.1.tgz#17ba40fe9665c60bcaa9a3cf722baf0862cf9b94"
