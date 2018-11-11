@@ -190,6 +190,17 @@
           }
         }
       }
+    },
+    "ionic-customer": {
+      "root": "apps/ionic-customer/",
+      "sourceRoot": "apps/ionic-customer/src",
+      "projectType": "application",
+      "prefix": "foo",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

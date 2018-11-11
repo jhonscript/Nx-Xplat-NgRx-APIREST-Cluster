@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "./",
+    "paths": {
+        "@Nx-Xplat-NgRx-APIREST-Cluster/*": [
+          "../../../libs/*"
+        ],
+        "@Nx-Xplat-NgRx-APIREST-Cluster/ionic": [
+          "../../../xplat/ionic/index.ts"
+        ],
+        "@Nx-Xplat-NgRx-APIREST-Cluster/ionic/*": [
+          "../../../xplat/ionic/*"
+        ],
+        "@Nx-Xplat-NgRx-APIREST-Cluster/web": [
+          "../../../xplat/web/index.ts"
+        ],
+        "@Nx-Xplat-NgRx-APIREST-Cluster/web/*": [
+          "../../../xplat/web/*"
+        ]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

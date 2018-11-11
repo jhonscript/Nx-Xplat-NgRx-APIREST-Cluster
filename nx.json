@@ -19,6 +19,9 @@
     },
     "web-customer-e2e": {
       "tags": []
+    },
+    "ionic-customer": {
+      "tags": []
     }
   }
 }

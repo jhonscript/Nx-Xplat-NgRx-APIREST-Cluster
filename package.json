@@ -25,8 +25,17 @@
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
     "clean.shared": "cd libs/ && git clean -dfX && cd ../xplat/ && git clean -dfX",
-    "clean": "npx rimraf hooks node_modules package-lock.json && npm i",
-    "start.web.customer": "ng serve web-customer"
+    "clean": "npx rimraf -- hooks node_modules package-lock.json && npm i",
+    "start.web.customer": "ng serve web-customer",
+    "build.ionic.customer": "cd apps/ionic-customer && npm run build:web",
+    "prepare.ionic.customer": "npm run clean && npm run clean.ionic.customer && npm run build.ionic.customer",
+    "prepare.ionic.customer.ios": "npm run prepare.ionic.customer && cd apps/ionic-customer && npm run cap.add.ios",
+    "prepare.ionic.customer.android": "npm run prepare.ionic.customer && cd apps/ionic-customer && npm run cap.add.android",
+    "open.ionic.customer.ios": "cd apps/ionic-customer && npm run cap.ios",
+    "open.ionic.customer.android": "cd apps/ionic-customer && npm run cap.android",
+    "sync.ionic.customer": "cd apps/ionic-customer && npm run cap.copy",
+    "start.ionic.customer": "cd apps/ionic-customer && npm start",
+    "clean.ionic.customer": "cd apps/ionic-customer && npx rimraf -- hooks node_modules platforms www plugins ios android package-lock.json && npm i && rimraf -- package-lock.json"
   },
   "private": true,
   "dependencies": {
