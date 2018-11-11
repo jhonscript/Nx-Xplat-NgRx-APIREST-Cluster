@@ -58,6 +58,138 @@
           }
         }
       }
+    },
+    "web-customer": {
+      "root": "apps/web-customer/",
+      "sourceRoot": "apps/web-customer/src",
+      "projectType": "application",
+      "prefix": "Nx-Xplat-NgRx-APIREST-Cluster",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-customer",
+            "index": "apps/web-customer/src/index.html",
+            "main": "apps/web-customer/src/main.ts",
+            "polyfills": "apps/web-customer/src/polyfills.ts",
+            "tsConfig": "apps/web-customer/tsconfig.app.json",
+            "assets": [
+              "apps/web-customer/src/favicon.ico",
+              "apps/web-customer/src/assets"
+            ],
+            "styles": [
+              "xplat/web/scss/_index.scss",
+              "apps/web-customer/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-customer/src/environments/environment.ts",
+                  "with": "apps/web-customer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-customer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-customer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-customer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/web-customer/src/test.ts",
+            "polyfills": "apps/web-customer/src/polyfills.ts",
+            "tsConfig": "apps/web-customer/tsconfig.spec.json",
+            "karmaConfig": "apps/web-customer/karma.conf.js",
+            "styles": [
+              "apps/web-customer/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/web-customer/src/favicon.ico",
+              "apps/web-customer/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-customer/tsconfig.app.json",
+              "apps/web-customer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "web-customer-e2e": {
+      "root": "apps/web-customer-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/web-customer-e2e/protractor.conf.js",
+            "devServerTarget": "web-customer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-customer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/web-customer-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

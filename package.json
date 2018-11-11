@@ -24,7 +24,9 @@
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
-    "clean.shared": "cd libs/ && git clean -dfX && cd ../xplat/ && git clean -dfX"
+    "clean.shared": "cd libs/ && git clean -dfX && cd ../xplat/ && git clean -dfX",
+    "clean": "npx rimraf hooks node_modules package-lock.json && npm i",
+    "start.web.customer": "ng serve web-customer"
   },
   "private": true,
   "dependencies": {
