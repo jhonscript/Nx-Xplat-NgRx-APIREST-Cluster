@@ -1,15 +1,23 @@
+// angular
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [
+// app
+import { SharedModule } from './features/shared/shared.module';
+
+const routes: Routes = [
   {
     path: '',
-    loadChildren: './pages/home/home.module#HomeModule'
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: './features/home/home.module#HomeModule'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [SharedModule, RouterModule.forRoot(routes)]
 })
 export class AppRoutingModule {}
